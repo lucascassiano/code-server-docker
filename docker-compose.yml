@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  code-server:
+    build: .
+    ports:
+      - "8443:8443"
+    environment:
+      - TZ=America/Los_Angeles #optional
+      - PASSWORD=123 #CHANGE!!
+    volumes:
+      - ./code:/code
+    command: code-server --bind-addr=0.0.0.0:8443 --disable-telemetry .
